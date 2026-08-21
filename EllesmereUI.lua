@@ -315,6 +315,7 @@ local ADDON_ROSTER = {
     { folder = "EllesmereUIBags",              display = "Bags",                 search_name = "EllesmereUI Bags"                    },
     { folder = "EllesmereUIDataBars",          display = "DataBars",             search_name = "EllesmereUI DataBars"                },
     { folder = "EllesmereUIQuickdraw",         display = "Quickdraw",            search_name = "EllesmereUI Quickdraw"               },
+    { folder = "EllesmereUIQuickTravel",       display = "Quick Travel",          search_name = "EllesmereUI Quick Travel Hearth Teleport" },
     { folder = "EllesmereUIPartyMode",         display = "Party Mode",           search_name = "EllesmereUI Party Mode",             alwaysLoaded = true },
 }
 
@@ -344,6 +345,7 @@ EllesmereUI.ADDON_GROUPS = {
             "EllesmereUIAuraBuffReminders",
             "EllesmereUIDataBars",
             "EllesmereUIQuickdraw",
+            "EllesmereUIQuickTravel",
             "EllesmereUIPartyMode",
         },
     },
@@ -3981,6 +3983,7 @@ EllesmereUI._addonKeyToFolder = {
     raidFrames   = "EllesmereUIRaidFrames",
     bags         = "EllesmereUIBags",
     quickdraw    = "EllesmereUIQuickdraw",
+    quickTravel  = "EllesmereUIQuickTravel",
 }
 EllesmereUI._moduleFontCache = {}
 EllesmereUI._moduleFontCacheVer = 0
@@ -6043,6 +6046,7 @@ do
         { key = "EQOL",                "/qol" },
         { key = "EQTOPTS",             "/eqtopts" },
         { key = "EUIQUICKDRAW",        "/eqd", "/quickdraw" },
+        { key = "EUIQUICKTRAVEL",      "/eqt", "/quicktravel" },
         { key = "ELLESMERERAIDFRAMES", "/erf" },
         { key = "ERBOPT",              "/erbopt" },
         { key = "ELLESMEREUNITFRAMES", "/euf" },
@@ -10364,6 +10368,7 @@ function EllesmereUI:RegisterModule(folderName, config)
         EllesmereUIBags = true,
         EllesmereUIDataBars = true,
         EllesmereUIQuickdraw = true,
+        EllesmereUIQuickTravel = true,
     }
     if callerFolder and not ALLOWED[callerFolder] then return end
     -- Suite-core marker (module key is a suite folder), gating the toolbar whitelists:
